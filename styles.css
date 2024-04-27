@@ -33,6 +33,7 @@
     font-size: 35px;
     text-align: center;
     font-weight: bold;
+    outline: none;
 }
 
 .keyboard-position {
