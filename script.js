@@ -1,7 +1,6 @@
 //lock the textboxes once guess has been entered
 const body = document.body;
 
-document.getElementById("first-box").focus();
 
 //Keyboard keys
 const q = document.querySelector("#q");
@@ -96,7 +95,7 @@ function enterGuess(nextTextBox) {
 
 //Keyboard color change functions
 function makeKeyGreen(key) {
-    key.style.setProperty('background-color', 'green');
+    key.style.setProperty('background-color', 'rgb(76, 173, 76)');
     key.style.setProperty('color', 'white');
 }
 
@@ -107,6 +106,21 @@ function makeKeyGrey(key) {
 
 //Screen color change functions
 function makeBoxGreen(textBox) {
-    key.style.setProperty('background-color', 'green');
-    key.style.setProperty('color', 'white');
+    textBox.style.setProperty('background-color', 'rgb(76, 173, 76)');
+    textBox.style.setProperty('color', 'white');
 }
+
+function makeBoxGrey(textBox) {
+    textBox.style.setProperty('background-color', 'grey');
+    textBox.style.setProperty('color', 'white');
+}
+
+function makeBoxYellow(textBox) {
+    textBox.style.setProperty('background-color', 'rgb(207, 188, 39)');
+    textBox.style.setProperty('color', 'white');
+}
+makeKeyGreen(q);
+makeKeyGrey(a);
+makeBoxGreen(boxOne);
+makeBoxGrey(boxTwo);
+makeBoxYellow(boxThree);
