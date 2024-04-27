@@ -38,3 +38,21 @@
     text-align: center;
     font-weight: bold;
 }
+
+.keyboard-position {
+    display: flex;
+    justify-content: center;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 700px;
+    height: 100px;
+}
+
+.first-row-keyboard, .second-row-keyboard, .third-row-keyboard {
+    display: flex;
+    justify-content: center;
+}
