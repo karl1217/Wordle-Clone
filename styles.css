@@ -1,14 +1,14 @@
 .grid-position {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .grid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 500px;
+    height: 450px;
     width: 400px;
 }
 
@@ -22,18 +22,14 @@
 .row-1, .row-2, .row-3, .row-4, .row-5, .row-6 {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
     justify-content: center;
-    height: 60px;
-    width: 400px;
-    margin: 5px;
 }
 
 .text-box {
-    width: 50px;
-    height: 50px;
-    border: solid 2px black;
-    margin: 5px;
+    width: 60px;
+    height: 60px;
+    border: solid 2px rgb(200, 200, 200);
+    margin: 4px;
     font-size: 35px;
     text-align: center;
     font-weight: bold;
@@ -50,9 +46,32 @@
     justify-content: center;
     width: 700px;
     height: 100px;
+    margin-top: 70px;
 }
 
 .first-row-keyboard, .second-row-keyboard, .third-row-keyboard {
     display: flex;
     justify-content: center;
+    margin: 2px;
+}
+
+.key {
+    border: none;
+    width: 45px;
+    height: 65px;
+    margin: 2px;
+    border-radius: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    background-color: rgb(220, 220, 220);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#enter {
+    width: 95px;
+}
+
+#delete {
+    width: 55px;
 }
