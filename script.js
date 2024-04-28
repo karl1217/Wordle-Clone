@@ -3,6 +3,7 @@ const body = document.body;
 const textBox = document.querySelectorAll(".text-box");
 const key = document.querySelectorAll(".key");
 const answer = document.querySelectorAll(".answer");
+document.body.style.fontFamily = 'Franklin Gothic Medium';
 
 //Functions and variables
 let allGuesses = []; //2D array
