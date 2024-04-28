@@ -9,6 +9,7 @@ document.body.style.fontFamily = 'Franklin Gothic Medium';
 let allGuesses = []; //2D array
 let currentGuess = [];
 let currentTextBox = 0;
+let numOfLetters = 0;
 
 
 //Box colors
@@ -42,16 +43,20 @@ function makeKeyGrey(key) {
 
 //Writing text to screen
 function addLetterToScreen(textBox, letter) {
-    textBox.innerText = letter;
-    currentTextBox++;
+    if (!(numOfLetters == 5)) {
+        textBox.innerText = letter;
+        currentTextBox++;
+        numOfLetters++;
+    }
     return;
 }
 
 function deleteLetterFromScreen(textBox) {
     if (currentTextBox > 0) {
+        textBox.innerText = "";
         currentTextBox--;
+        numOfLetters--;
     }
-    textBox.innerText = "";
     return;
 }
 
@@ -175,7 +180,7 @@ key[26].addEventListener("click", () => {
 });
 
 key[27].addEventListener("click", () => {
-    deleteLetterFromScreen(textBox[currentTextBox]);
+    deleteLetterFromScreen(textBox[currentTextBox - 1]);
 });
 
 
