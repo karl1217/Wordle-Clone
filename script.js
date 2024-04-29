@@ -10,6 +10,7 @@ let answerCopy = [0,0,0,0,0];
 //Functions and variables
 let allGuesses = []; //2D array
 let currentGuess = [];
+
 let currentTextBox = 0;
 let numOfLetters = 0;
 let textBoxEvaluating = 0;
@@ -76,9 +77,7 @@ function copyArray(array, arrayToCopy) {
 //Guess checking function
 function validateGuess(currentGuess, answer) {
     answerCopy = copyArray(answerCopy, answer);
-    //For loop through each char in guess and compare it to the actual answer
     for (let i = 0; i < 5; i++) {
-        //if a letter is in the correct position, make the box green and move to next letter
         if (currentGuess[i] == answerCopy[i]) {
             makeBoxGreen(textBox[textBoxEvaluating]);
             answerCopy[i] = 1;
@@ -87,7 +86,6 @@ function validateGuess(currentGuess, answer) {
         textBoxEvaluating++;
     }
     textBoxEvaluating-=5;
-
 
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 5; j++) {
@@ -220,9 +218,12 @@ key[27].addEventListener("click", () => {
 //ENTER BUTTON
 key[19].addEventListener("click", () => {
     validateGuess(currentGuess, answer);
+    allGuesses.push(currentGuess);
     numOfLetters = 0;
     currentGuess = [];
-
+    if (correctLetters == 5) {
+        alert("Impressive");
+    } else {
+        correctLetters = 0;
+    }
 });
-
-
