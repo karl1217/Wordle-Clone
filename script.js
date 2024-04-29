@@ -6,7 +6,7 @@ const winMessage = document.querySelector(".win-message");
 document.body.style.fontFamily = 'Franklin Gothic Medium';
 
 //Add random word bank
-let wordBank = ["adobo", "sisig"];
+let wordBank = ["adobo", "sisig", "pizza", "mango", "mochi", "sushi", "kebab", "pasta"];
 
 //Word bank
 let answer = [];
