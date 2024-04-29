@@ -2,14 +2,18 @@
 const body = document.body;
 const textBox = document.querySelectorAll(".text-box");
 const key = document.querySelectorAll(".key");
-const answer = document.querySelectorAll(".answer");
 document.body.style.fontFamily = 'Franklin Gothic Medium';
 
+//Word bank
+let answer = ['P', 'I', 'Z', 'Z', 'A'];
+let answerCopy = [0,0,0,0,0];
 //Functions and variables
 let allGuesses = []; //2D array
 let currentGuess = [];
 let currentTextBox = 0;
 let numOfLetters = 0;
+let textBoxEvaluating = 0;
+let correctLetters = 0;
 
 
 //Box colors
@@ -47,6 +51,7 @@ function addLetterToScreen(textBox, letter) {
         textBox.innerText = letter;
         currentTextBox++;
         numOfLetters++;
+        currentGuess.push(letter);
     }
     return;
 }
@@ -56,16 +61,47 @@ function deleteLetterFromScreen(textBox) {
         textBox.innerText = "";
         currentTextBox--;
         numOfLetters--;
+        currentGuess.pop();
     }
     return;
 }
 
+function copyArray(array, arrayToCopy) {
+    for (let i = 0; i < 5; i++) {
+        array[i] = arrayToCopy[i];
+    }
+    return array;
+}
 
-makeKeyGreen(key[0]);
-makeKeyGrey(key[1]);
-makeBoxGreen(textBox[0]);
-makeBoxGrey(textBox[1]);
-makeBoxYellow(textBox[2]);
+//Guess checking function
+function validateGuess(currentGuess, answer) {
+    answerCopy = copyArray(answerCopy, answer);
+    //For loop through each char in guess and compare it to the actual answer
+    for (let i = 0; i < 5; i++) {
+        //if a letter is in the correct position, make the box green and move to next letter
+        if (currentGuess[i] == answerCopy[i]) {
+            makeBoxGreen(textBox[textBoxEvaluating]);
+            answerCopy[i] = 1;
+            correctLetters++;
+        }
+        textBoxEvaluating++;
+    }
+    textBoxEvaluating-=5;
+
+
+    for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+            if (currentGuess[i] == answerCopy[j]) {
+                makeBoxYellow(textBox[textBoxEvaluating]);
+                answerCopy[j] = 0;
+                break;
+            } else if (answerCopy[i] != 1) {
+                makeBoxGrey(textBox[textBoxEvaluating]);
+            }       
+        }
+        textBoxEvaluating++;
+    }
+}
 
 
 
@@ -148,8 +184,6 @@ key[18].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "L");
 });
 
-//ENTER BUTTON
-
 key[20].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "Z");
 });
@@ -183,7 +217,12 @@ key[27].addEventListener("click", () => {
     deleteLetterFromScreen(textBox[currentTextBox - 1]);
 });
 
+//ENTER BUTTON
+key[19].addEventListener("click", () => {
+    validateGuess(currentGuess, answer);
+    numOfLetters = 0;
+    currentGuess = [];
 
-
+});
 
 
