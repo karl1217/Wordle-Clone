@@ -25,7 +25,7 @@ let disableKeyboard = false;
 //Random word array
 let word = wordBank[Math.floor(Math.random() * wordBank.length)];
 for (let i = 0; i < 5; i++) {
-    answer.push(word[i]);
+    answer.push(word[i].toUpperCase());
 }
 
 //Box colors
