@@ -5,8 +5,11 @@ const key = document.querySelectorAll(".key");
 const winMessage = document.querySelector(".win-message");
 document.body.style.fontFamily = 'Franklin Gothic Medium';
 
+//Add random word bank
+let wordBank = ["adobo", "sisig"];
+
 //Word bank
-let answer = ['P', 'I', 'Z', 'Z', 'A'];
+let answer = [];
 let answerCopy = [0,0,0,0,0];
 
 //Functions and variables
@@ -19,6 +22,11 @@ let correctLetters = 0;
 
 let disableKeyboard = false;
 
+//Random word array
+let word = wordBank[Math.floor(Math.random() * wordBank.length)];
+for (let i = 0; i < 5; i++) {
+    answer.push(word[i]);
+}
 
 //Box colors
 function makeBoxGreen(textBox) {
