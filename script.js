@@ -2,6 +2,7 @@
 const body = document.body;
 const textBox = document.querySelectorAll(".text-box");
 const key = document.querySelectorAll(".key");
+const winMessage = document.querySelector(".win-message");
 document.body.style.fontFamily = 'Franklin Gothic Medium';
 
 //Word bank
@@ -222,7 +223,8 @@ key[19].addEventListener("click", () => {
     numOfLetters = 0;
     currentGuess = [];
     if (correctLetters == 5) {
-        alert("Impressive");
+        winMessage.style.setProperty("width", "100px");
+        winMessage.style.setProperty("height", "45px");
     } else {
         correctLetters = 0;
     }
