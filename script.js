@@ -8,14 +8,16 @@ document.body.style.fontFamily = 'Franklin Gothic Medium';
 //Word bank
 let answer = ['P', 'I', 'Z', 'Z', 'A'];
 let answerCopy = [0,0,0,0,0];
+
 //Functions and variables
-let allGuesses = []; //2D array
 let currentGuess = [];
 
 let currentTextBox = 0;
 let numOfLetters = 0;
 let textBoxEvaluating = 0;
 let correctLetters = 0;
+
+let disableKeyboard = false;
 
 
 //Box colors
@@ -49,7 +51,7 @@ function makeKeyGrey(key) {
 
 //Writing text to screen
 function addLetterToScreen(textBox, letter) {
-    if (!(numOfLetters == 5)) {
+    if ((!(numOfLetters == 5)) && !disableKeyboard) {
         textBox.innerText = letter;
         currentTextBox++;
         numOfLetters++;
@@ -59,14 +61,17 @@ function addLetterToScreen(textBox, letter) {
 }
 
 function deleteLetterFromScreen(textBox) {
-    if (currentTextBox > 0) {
-        textBox.innerText = "";
-        currentTextBox--;
-        numOfLetters--;
-        currentGuess.pop();
+    if ((currentTextBox > 0) && !disableKeyboard) {
+        if (numOfLetters != 0) {
+            textBox.innerText = "";
+            currentTextBox--;
+            numOfLetters--;
+            currentGuess.pop();
+        }
     }
     return;
 }
+
 
 function copyArray(array, arrayToCopy) {
     for (let i = 0; i < 5; i++) {
@@ -218,14 +223,16 @@ key[27].addEventListener("click", () => {
 
 //ENTER BUTTON
 key[19].addEventListener("click", () => {
-    validateGuess(currentGuess, answer);
-    allGuesses.push(currentGuess);
-    numOfLetters = 0;
-    currentGuess = [];
-    if (correctLetters == 5) {
-        winMessage.style.setProperty("width", "100px");
-        winMessage.style.setProperty("height", "45px");
-    } else {
-        correctLetters = 0;
+    if (numOfLetters == 5) { 
+        validateGuess(currentGuess, answer);
+        numOfLetters = 0;
+        currentGuess = [];
+        if (correctLetters == 5) {
+            disableKeyboard = true;
+            winMessage.style.setProperty("width", "100px");
+            winMessage.style.setProperty("height", "45px");
+        } else {
+            correctLetters = 0;
+        }
     }
 });
