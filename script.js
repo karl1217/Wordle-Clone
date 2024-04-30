@@ -7,10 +7,7 @@ document.body.style.fontFamily = 'Franklin Gothic Medium';
 
 //Add random word bank
 //let wordBank = ["adobo", "sisig", "pizza", "mango", "mochi", "sushi", "kebab", "pasta"];
-wordBank = ["pizza"];
-//MAKE KEYS GREY / GREEN
-
-
+let wordBank = ["sushi"];
 //Word bank
 let answer = [];
 let answerCopy = [0,0,0,0,0];
@@ -129,21 +126,23 @@ function validateGuess(currentGuess, answer) {
         textBoxEvaluating++;
     }
     textBoxEvaluating-=5;
-
+    
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 5; j++) {
-            if (currentGuess[i] == answerCopy[j]) {
-                makeBoxYellow(textBox[textBoxEvaluating]);
-                if (!(keysPressed[i] in correctKeys)) {
-                    correctKeys.push(keysPressed[i]);
-                }
-                answerCopy[j] = 0;
-                break;
-            } else if (answerCopy[i] != 1) {
-                makeBoxGrey(textBox[textBoxEvaluating]);
-                incorrectKeys.push(keysPressed[i]);
-                
-            }       
+            if (answerCopy[i] != 1) {
+                if (currentGuess[i] == answerCopy[j]) {
+                    makeBoxYellow(textBox[textBoxEvaluating]);
+                    if (!(keysPressed[i] in correctKeys)) {
+                        correctKeys.push(keysPressed[i]);
+                    }
+                    answerCopy[j] = 0;
+                    break;
+                } else if (answerCopy[i] != 1) {
+                    makeBoxGrey(textBox[textBoxEvaluating]);
+                    incorrectKeys.push(keysPressed[i]);
+                    
+                }       
+            }
         }
         textBoxEvaluating++;
     }
