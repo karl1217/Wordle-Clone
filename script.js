@@ -6,8 +6,8 @@ const winMessage = document.querySelector(".win-message");
 document.body.style.fontFamily = 'Franklin Gothic Medium';
 
 //Add random word bank
-//let wordBank = ["adobo", "sisig", "pizza", "mango", "mochi", "sushi", "kebab", "pasta"];
-let wordBank = ["sushi"];
+let wordBank = ["adobo", "sisig", "pizza", "mango", "mochi", "sushi", "kebab", "pasta"];
+
 //Word bank
 let answer = [];
 let answerCopy = [0,0,0,0,0];
@@ -109,8 +109,6 @@ function updateGreyKeyColors() {
     return;
 }
 
-
-
 //Guess checking function
 function validateGuess(currentGuess, answer) {
     answerCopy = copyArray(answerCopy, answer);
@@ -139,8 +137,7 @@ function validateGuess(currentGuess, answer) {
                     break;
                 } else if (answerCopy[i] != 1) {
                     makeBoxGrey(textBox[textBoxEvaluating]);
-                    incorrectKeys.push(keysPressed[i]);
-                    
+                    incorrectKeys.push(keysPressed[i]);                   
                 }       
             }
         }
@@ -162,128 +159,101 @@ key[1].addEventListener("click", () => {
 
 key[2].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "E", 2);
-
-
 });
 
 key[3].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "R", 3);
-
-
 });
 
 key[4].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "T", 4);
-
-
 });
 
 key[5].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "Y", 5);
-
 });
 
 key[6].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "U", 6);
-
 });
 
 key[7].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "I", 7);
-
 });
 
 key[8].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "O", 8);
-
 });
 
 key[9].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "P", 9);
-
 });
 
 
 key[10].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "A", 10);
-
 });
 
 key[11].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "S", 11);
-
 });
 
 key[12].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "D", 12);
-
 });
 
 key[13].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "F", 13);
-
 });
 
 key[14].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "G", 14);
-
 });
 
 
 key[15].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "H", 15);
-
 });
 
 key[16].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "J", 16);
-
 });
 
 key[17].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "K", 17);
-
 });
 
 key[18].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "L", 18);
-
 });
 
 key[20].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "Z", 20);
-
 });
 
 key[21].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "X", 21);
-
 });
 
 key[22].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "C", 22);
-
 });
 
 key[23].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "V", 23);
-
 });
 
 key[24].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "B", 24);
-
 });
 
 
 key[25].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "N", 25);
-
 });
 
 key[26].addEventListener("click", () => {
     addLetterToScreen(textBox[currentTextBox], "M", 26);
-
 });
 
 key[27].addEventListener("click", () => {
