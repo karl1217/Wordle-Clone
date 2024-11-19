@@ -6,7 +6,11 @@ const winMessage = document.querySelector(".win-message");
 document.body.style.fontFamily = 'Franklin Gothic Medium';
 
 //Add random word bank
-let wordBank = ["adobo", "sisig", "pizza", "mango", "mochi", "sushi", "kebab", "pasta"];
+let wordBank = [
+    "apple", "grape", "house", "table", "plane", "stone", "water", "party", "music", "brick",
+    "light", "dance", "plant", "piano", "beach", "sword", "charm", "glove", "sweet", "flame",
+    "laugh", "peace", "crowd", "watch", "clean", "climb", "dream", "bloom", "brick", "swear"
+  ];
 
 //Word bank
 let answer = [];
